@@ -1,38 +1,42 @@
 import React, {useState} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Card from 'react-bootstrap/Card';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
-import Row from 'react-bootstrap/Row';
-import Container from 'react-bootstrap/Container';
-import Col from 'react-bootstrap/Col';
 import TextField from '@mui/material/TextField';
 import Grid from '@mui/material/Grid';
-import test_data from "./test_data"
-import { height } from '@mui/system';
+import data from "./data"
+
+
+
+
 
 function KBCard(props) {
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
+    const arrow = <span class="material-symbols-rounded">
+    arrow_forward_ios
+    </span>
     
-    return(<div>
-<Grid>   
-    <Card style={{ width: '55rem',height: '3rem',textAlign: 'center', padding: "2px"}} className="card" border="secondary" bg="primary" onClick={handleShow} cursor="pointer">
-  
-  <Card.Body>
-    <Card.Title>{props.Title}</Card.Title>
+    return(<>
 
-  </Card.Body>
-</Card>
-</Grid>
+
+  <div style={{ width: '40rem',height: '4rem',textAlign: 'left'}} className="cardd" onClick={handleShow} cursor="pointer">
+  
+    {arrow} 
+    
+    {props.Title}
+    <hr></hr>
+    </div>
+  
+
 
 
       <Modal show={show} onHide={handleClose} size="lg" scrollable="true" fullscreen="true" aria-labelledby="contained-modal-title-vcenter"
       centered>
         <Modal.Header closeButton>
-          <Modal.Title>{props.Title}</Modal.Title>
+        <Modal.Title>{props.Title}</Modal.Title>
         </Modal.Header>
         <Modal.Body>{props.Content}</Modal.Body>
         <Modal.Footer>
@@ -41,29 +45,32 @@ function KBCard(props) {
           </Button>
         </Modal.Footer>
       </Modal>
-</div>)
+</>)
 }
 
 function App (){
     let [searchTerm, setSearch] = useState("")
-    let results = test_data.map((x) => 
+    let results = data.map((x) => 
     {if ((x.Title.toLowerCase()).includes(searchTerm.toLowerCase()))
         return <>{<KBCard Title={x.Title} Content={x.Content}/>}</>})
 
     return (<>
         
-            <h1>Knowledge Base</h1>
+            <h1 className="subtitle-header">How can we help you...</h1>
             <div className="search">
-            <TextField  style={{ width: '55rem' }} id="outlined-search" label="How can we help.." type="search" onChange={(x)=> {setSearch(searchTerm = x.target.value)}} />
-            </div>    
-      
-            <Grid className="grid" container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
 
-        {results}
-        
+            <TextField style={{ width: '35rem'}} inputProps={{style: {fontSize: 30}}}  size="large" id="outlined-search" variant="standard" label="Search here..." type="search" onChange={(x)=> {setSearch(searchTerm = x.target.value)}} />
+            
+            </div>  
 
+            
+            <h1 className ="article-header">Articles</h1>
+            
+<div className='grid'>
+            <Grid direction="row" container spacing={3} columns={{ xs: 4, sm: 8, md: 12 }}>
+              {results}
   </Grid>
-      
+ </div>  
 </>)}
 
 export default App;

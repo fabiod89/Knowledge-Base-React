@@ -5,7 +5,6 @@ import Header from "./header"
 
 import "./styles.css"
 
-
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(<>
   <div>
@@ -14,5 +13,6 @@ root.render(<>
   <div className="App">
     <App/>
   </div>
+
 </>
 );
