@@ -29,10 +29,6 @@ function KBCard(props) {
     {props.Title}
     <hr></hr>
     </div>
-  
-
-
-
       <Modal show={show} onHide={handleClose} size="lg" scrollable="true" fullscreen="true" aria-labelledby="contained-modal-title-vcenter"
       centered>
         <Modal.Header closeButton>
@@ -55,19 +51,13 @@ function App (){
         return <>{<KBCard Title={x.Title} Content={x.Content}/>}</>})
 
     return (<>
-        
             <h1 className="subtitle-header">How can we help you...</h1>
             <div className="search">
-
             <TextField style={{ width: '35rem'}} inputProps={{style: {fontSize: 30}}}  size="large" id="outlined-search" variant="standard" label="Search here..." type="search" onChange={(x)=> {setSearch(searchTerm = x.target.value)}} />
-            
             </div>  
 
-            
-            <h1 className ="article-header">Articles</h1>
-            
 <div className='grid'>
-            <Grid direction="row" container spacing={3} columns={{ xs: 4, sm: 8, md: 12 }}>
+            <Grid direction="row" container spacing={4} columns={{ xs: 4, sm: 8, md: 12 }}>
               {results}
   </Grid>
  </div>  

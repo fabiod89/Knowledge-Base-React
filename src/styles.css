@@ -1,5 +1,4 @@
 #root {
-  
   font-family: 'Source Sans Pro', Helvetica, sans-serif;
   font-size: 20px;
   
@@ -14,7 +13,7 @@
 
 .App {
 
-  padding-top: 15px;
+  padding-top: 5px;
   text-align:center;
 }
 
@@ -27,33 +26,23 @@
 }
 
 .grid {
-  margin-top: 50px;
-  
+  margin-top: 5px;
   padding: 60px;
-  
-  
-  margin-left: 13%;
-}
-
-.flasher {
-  display: block;
-  animation: flasher 0.5s;
-  background: red;
-  color: white;
+  width: 100%;
+  margin-right: 50%;
+  margin-left: 20%;
 }
 
 .cardd { 
-    
-    margin: 8px;
-    transition: 0.3s;
-  }
+  margin: 8px;
+  transition: 0.3s;
+}
 
 
   
-  .cardd:hover {
-
-    color:cornflowerblue;
-    cursor: pointer;
+.cardd:hover {
+  color:cornflowerblue;
+  cursor: pointer;
 }
 
 .subtitle-header {
